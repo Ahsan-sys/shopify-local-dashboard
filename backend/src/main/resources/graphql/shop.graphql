@@ -1,0 +1,3 @@
+query Shop {
+  shop { id name email myshopifyDomain currencyCode primaryDomain { host url } ianaTimezone }
+}

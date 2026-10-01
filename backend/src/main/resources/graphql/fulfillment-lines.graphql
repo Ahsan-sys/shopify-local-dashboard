@@ -1,0 +1,8 @@
+query FulfillmentLines($id: ID!, $after: String) {
+  fulfillmentOrder(id: $id) {
+    lineItems(first: 100, after: $after) {
+      nodes { id remainingQuantity }
+      pageInfo { hasNextPage endCursor }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+query Products($first: Int!, $after: String) {
+  products(first: $first, after: $after, sortKey: ID) {
+    nodes {
+      id title handle descriptionHtml status tags
+      variants(first: 3) {
+        nodes {
+          id title sku price
+          inventoryItem {
+            id tracked
+            inventoryLevels(first: 3) {
+              nodes { location { id name } quantities(names: ["available"]) { name quantity } }
+              pageInfo { hasNextPage endCursor }
+            }
+          }
+        }
+        pageInfo { hasNextPage endCursor }
+      }
+    }
+    pageInfo { hasNextPage hasPreviousPage startCursor endCursor }
+  }
+}

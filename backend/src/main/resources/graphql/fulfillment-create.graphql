@@ -1,0 +1,6 @@
+mutation FulfillmentCreate($fulfillment: FulfillmentInput!) {
+  fulfillmentCreate(fulfillment: $fulfillment) {
+    fulfillment { id status trackingInfo { number company url } }
+    userErrors { field message }
+  }
+}

@@ -1,0 +1,16 @@
+query FulfillmentOrders($id: ID!, $after: String) {
+  order(id: $id) {
+    id displayFulfillmentStatus cancelledAt
+    fulfillmentOrders(first: 20, after: $after) {
+      nodes {
+        id status supportedActions { action }
+        assignedLocation { location { id name isFulfillmentService } }
+        lineItems(first: 20) {
+          nodes { id remainingQuantity }
+          pageInfo { hasNextPage endCursor }
+        }
+      }
+      pageInfo { hasNextPage endCursor }
+    }
+  }
+}

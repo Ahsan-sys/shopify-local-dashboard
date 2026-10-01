@@ -1,0 +1,10 @@
+query Orders($first: Int!, $after: String) {
+  orders(first: $first, after: $after, sortKey: CREATED_AT, reverse: true) {
+    nodes {
+      id name billingAddress { name } shippingAddress { name }
+      totalPriceSet { shopMoney { amount currencyCode } }
+      displayFinancialStatus displayFulfillmentStatus createdAt cancelledAt note tags
+    }
+    pageInfo { hasNextPage hasPreviousPage startCursor endCursor }
+  }
+}

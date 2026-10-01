@@ -1,0 +1,17 @@
+query Variants($id: ID!, $first: Int!, $after: String) {
+  product(id: $id) {
+    variants(first: $first, after: $after) {
+      nodes {
+        id title sku price
+        inventoryItem {
+          id tracked
+          inventoryLevels(first: 3) {
+            nodes { location { id name } quantities(names: ["available"]) { name quantity } }
+            pageInfo { hasNextPage endCursor }
+          }
+        }
+      }
+      pageInfo { hasNextPage endCursor }
+    }
+  }
+}
