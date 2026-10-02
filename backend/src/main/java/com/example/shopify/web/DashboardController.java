@@ -23,42 +23,32 @@ public class DashboardController {
   }
 
   @GetMapping("/products")
-  public JsonNode products(
-      @RequestParam(defaultValue = "10") int first, @RequestParam(required = false) String after) {
+  public JsonNode products(@RequestParam(defaultValue = "10") int first, @RequestParam(required = false) String after) {
     return catalog.products(first, after);
   }
 
   @GetMapping("/products/{id}/variants")
-  public JsonNode variants(
-      @PathVariable String id,
-      @RequestParam(defaultValue = "10") int first,
-      @RequestParam(required = false) String after) {
+  public JsonNode variants(@PathVariable String id,@RequestParam(defaultValue = "10") int first,@RequestParam(required = false) String after) {
     return catalog.variants(id, first, after);
   }
 
   @GetMapping("/inventory/{id}/levels")
-  public JsonNode inventory(
-      @PathVariable String id,
-      @RequestParam(defaultValue = "10") int first,
-      @RequestParam(required = false) String after) {
+  public JsonNode inventory(@PathVariable String id,@RequestParam(defaultValue = "10") int first,@RequestParam(required = false) String after) {
     return catalog.inventory(id, first, after);
   }
 
   @PutMapping("/products/{id}")
-  public JsonNode productUpdate(
-      @PathVariable String id, @Valid @RequestBody Requests.ProductUpdate input) {
+  public JsonNode productUpdate(@PathVariable String id, @Valid @RequestBody Requests.ProductUpdate input) {
     return catalog.updateProduct(id, input);
   }
 
   @GetMapping("/orders")
-  public JsonNode orders(
-      @RequestParam(defaultValue = "10") int first, @RequestParam(required = false) String after) {
+  public JsonNode orders(@RequestParam(defaultValue = "10") int first, @RequestParam(required = false) String after) {
     return catalog.orders(first, after);
   }
 
   @PutMapping("/orders/{id}")
-  public JsonNode orderUpdate(
-      @PathVariable String id, @Valid @RequestBody Requests.OrderUpdate input) {
+  public JsonNode orderUpdate(@PathVariable String id, @Valid @RequestBody Requests.OrderUpdate input) {
     return catalog.updateOrder(id, input);
   }
 

@@ -41,18 +41,18 @@ export default function App() {
             </NavLink>
           ))}
         </nav>
-        <div className="sidebar-footer">
+        {/* <div className="sidebar-footer">
           <strong>A little closer to your store.</strong>
           <p>Manage your catalog and orders from one local workspace.</p>
           <span>STORE OPERATIONS</span>
-        </div>
+        </div> */}
       </aside>
       <main id="main" tabIndex="-1">
         <div className="topbar">
           <span>
             Workspace / <b>{pathname.slice(1) || "Store"}</b>
           </span>
-          <span className="local-pill">On your computer</span>
+          {/* <span className="local-pill">On your computer</span> */}
         </div>
         <div className="page-content">
           <Routes>

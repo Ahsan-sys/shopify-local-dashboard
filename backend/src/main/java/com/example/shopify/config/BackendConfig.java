@@ -23,11 +23,7 @@ public class BackendConfig {
 
   @Bean
   ShopifyTransport shopifyTransport(ShopifySettings settings) {
-    var client =
-        HttpClient.newBuilder()
-            .connectTimeout(Duration.ofSeconds(5))
-            .followRedirects(HttpClient.Redirect.NEVER)
-            .build();
+    var client = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(5)).followRedirects(HttpClient.Redirect.NEVER).build();
     return new JdkShopifyTransport(client, settings.baseUri());
   }
 }
